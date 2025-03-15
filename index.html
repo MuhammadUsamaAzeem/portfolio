@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - UI/UX Designer</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+    <header class="animated-section fade-in">
+        <div class="logo">
+            <span>M</span>uhammad
+        </div>
+        <div class="nav-container">
+            <nav>
+                <ul>
+                    <li><a href="#" class="active"> Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="btn">Download CV</a>
+        </div>
+    </header>
+
+    <section class="hero animated-section slide-up">
+        <div class="content">
+            <p>Hello, I'm</p>
+            <h2><span>Muhammad Usama Azeem</span></h2>
+            <h1>UI & UX <br> <b style="margin-left: 221px;">Designer</b></h1>
+            <p class="description">
+                As a passionate UI/UX designer, I create engaging, user-friendly digital experiences with a strong focus
+                on usability and aesthetics.
+            </p>
+            <a href="#" class="hire-btn">Hire Me</a>
+        </div>
+        <div class="image">
+            <img src="Hero Img.png" alt="UI/UX Designer">
+        </div>
+    </section>
+
+    <section class="about-section animated-section fade-in">
+        <div class="about-image">
+            <img src="Hero Img.png" alt="Profile Image">
+        </div>
+        <div class="about-content">
+            <h2>About Me</h2>
+            <p>I'm Muhammad Usama Azeem, a passionate UI/UX Designer dedicated to crafting visually appealing and
+            user-friendly digital experiences. <br><br>
+            I specialize in website and mobile app design, ensuring seamless navigation and functionality. My goal
+            is to bridge the gap between creativity and usability.</p>
+        </div>
+    </section>
+
+    <section class="services animated-section slide-up">
+        <h2>Services</h2>
+        <p>I provide high-quality design solutions tailored to enhance user experience and brand identity.</p>
+
+        <div class="services-container">
+            <div class="service-box">
+                <img src="user-experience.png" alt="UI/UX">
+                <h3>UI/UX</h3>
+                <p>Designing intuitive and aesthetically pleasing interfaces for seamless user experiences.</p>
+            </div>
+            <div class="service-box">
+                <img src="graphic-design.png" alt="Web Design">
+                <h3>Web Design</h3>
+                <p>Building modern, responsive, and visually appealing websites that drive engagement.</p>
+            </div>
+            <div class="service-box">
+                <img src="responsive-app.png" alt="App Design">
+                <h3>App Design</h3>
+                <p>Creating user-friendly mobile app designs that offer smooth navigation and interaction.</p>
+            </div>
+            <div class="service-box">
+                <img src="graphic-design.png" alt="Graphic Design">
+                <h3>Graphic Design</h3>
+                <p>Enhancing brand identity with eye-catching visuals, icons, and marketing materials.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects-section animated-section fade-in">
+        <h2>My Projects</h2>
+        <p>Here are some of my recent projects showcasing my expertise in UI/UX, web design, and app design.</p>
+        <div class="projects-container">
+            <div class="project-item uiux" onclick="openLightbox('Project 1 Full Screen.png')">
+                <img src="Project 1.png" alt="Skill Connect Landing Page">
+                <p class="category">UI UX</p>
+                <h3>Skill Connect Landing Page</h3>
+            </div>
+            <div class="project-item uiux" onclick="openLightbox('Project 2 Full Screen.png')">
+                <img src="Project 2.png" alt="Santosh Kumar Landing Page">
+                <p class="category">UI UX</p>
+                <h3>Santosh Kumar Landing Page</h3>
+            </div>
+            <div class="project-item uiux" onclick="openLightbox('Project 3 Full Screen.png')">
+                <img src="Project 3.png" alt="Santosh Kumar Landing Page">
+                <p class="category">UI UX</p>
+                <h3>Sam Landing Page</h3>
+            </div>
+            <div class="project-item uiux" onclick="openLightbox('Project 4 Full Screen.png')">
+                <img src="Project 4.png" alt="Santosh Kumar Landing Page">
+                <p class="category">UI UX</p>
+                <h3>Car Auction Website</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section animated-section slide-up">
+        <h2>Let's Design Together</h2>
+        <p>Let's collaborate and bring your ideas to life! Get in touch to discuss your next project.</p>
+        <div class="contact-form">
+            <input type="email" placeholder="Enter Your Email">
+            <button class="contact-btn">Contact Me</button>
+        </div>
+    </section>
+
+    <footer class="footer animated-section fade-in">
+        <div class="footer-logo">
+            <span class="logo-box">M</span>uhammad
+        </div>
+        <nav class="footer-nav">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Projects</a>
+            <a href="#">Contact Us</a>
+        </nav>
+        <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 <span class="highlight">Muhammad Usama Azeem</span> | All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
