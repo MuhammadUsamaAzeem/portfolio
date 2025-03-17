@@ -784,3 +784,128 @@ h3 {
 .footer a:hover {
     color: #ffcc80;
 }
+
+
+/* Responsive Styles */
+@media screen and (max-width: 1024px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero .content {
+        max-width: 100%;
+    }
+
+    .hero .image img {
+        max-width: 80%;
+    }
+
+    .services-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .projects-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-content {
+        margin-left: 0;
+        max-width: 100%;
+    }
+}
+
+/* Responsive Design Fixes */
+
+@media screen and (max-width: 768px) {
+    /* Navbar Fix */
+    nav ul {
+        display: none;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Hero Section Fix */
+    .hero h1 {
+        font-size: 36px;
+        text-align: center;
+    }
+
+    /* Services Section Fix */
+    .services-container {
+        display: flex; /* Flexbox use kiya instead of Grid */
+        flex-direction: column;
+        gap: 20px;
+        align-items: center; /* Center alignment */
+    }
+
+    .service-item {
+        width: 90%; /* Full width on small screens */
+        padding: 15px;
+        text-align: center;
+    }
+
+    /* Projects Section Fix */
+    .projects-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .project-item {
+        width: 90%;
+        text-align: center;
+    }
+
+    /* Contact Form Fix */
+    .contact-form {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .contact-form input, .contact-form textarea {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .about-content h2 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    /* Services Section Optimization */
+    .services-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .service-item {
+        width: 100%;
+    }
+
+    /* Projects Section Fix */
+    .project-item {
+        width: 95%;
+    }
+}
