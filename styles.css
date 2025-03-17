@@ -40,7 +40,7 @@ nav ul {
     align-items: center;
     font-size: 24px;
     font-weight: bold;
-    color:#fff;
+    color: #fff;
 }
 
 .logo span {
@@ -215,7 +215,7 @@ nav ul li a:hover {
 
 .progress-bar {
     height: 12px;
-    background: #FF7A00;
+    background: #FF6300;
     border-radius: 5px;
 }
 
@@ -369,8 +369,6 @@ nav ul li a:hover {
     font-weight: bold;
 }
 
-
-/* Default styling for project items */
 .project-item {
     position: relative;
     overflow: hidden;
@@ -385,7 +383,6 @@ nav ul li a:hover {
     transition: transform 0.3s ease-in-out;
 }
 
-/* Hover effect: Image zoom and overlay */
 .project-item:hover img {
     transform: scale(1.1);
 }
@@ -498,12 +495,23 @@ nav ul li a:hover {
     color: #FF6300;
 }
 
+
 .footer {
     background: #000;
     color: white;
     text-align: center;
     padding: 40px 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
+
+.footer-bottom {
+    background: #111;
+    padding: 25px;
+    font-size: 14px;
+}
+
 
 .footer-logo {
     font-size: 28px;
@@ -552,31 +560,26 @@ nav ul li a:hover {
     color: #FF6300;
 }
 
-.footer-bottom {
-    background: #111;
-    padding: 10px;
-    font-size: 14px;
-}
 
 .highlight {
     color: #FF6300;
     font-weight: bold;
 }
 
-/* Default: Hide elements before animation */
+
 .animated-section {
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.6s ease-in-out;
 }
 
-/* When section is visible, apply animation */
+
 .animated-section.show {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Extra effects */
+
 .fade-in {
     animation: fadeIn 1s ease-in-out;
 }
@@ -585,6 +588,7 @@ nav ul li a:hover {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -599,13 +603,14 @@ nav ul li a:hover {
         transform: translateY(50px);
         opacity: 0;
     }
+
     to {
         transform: translateY(0);
         opacity: 1;
     }
 }
 
-/* Smooth animations for sections */
+
 section {
     opacity: 0;
     transform: translateY(30px);
@@ -617,12 +622,12 @@ section.show {
     transform: translateY(0);
 }
 
-/* Smooth Animations */
 @keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -634,6 +639,7 @@ section.show {
         opacity: 0;
         transform: translateX(-50px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -645,13 +651,14 @@ section.show {
         opacity: 0;
         transform: translateX(50px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
     }
 }
 
-/* Applying Animations */
+
 .hero .content {
     animation: fadeInUp 1.2s ease-out;
 }
@@ -672,7 +679,7 @@ section.show {
     animation: fadeInUp 1s ease-in-out;
 }
 
-/* Custom Scrollbar */
+
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -692,27 +699,31 @@ section.show {
     background: #e65100;
 }
 
-/* Orange Theme Colors */
 body {
     background-color: #fffaf0;
     color: #333;
 }
 
-h1, h2, h3 {
-    color: #ff9800;
+h1,
+h2,
+h3 {
+    color: #FF6300;
 }
 
-.btn, .hire-btn, .contact-btn {
-    background-color: #ff9800;
+.btn,
+.hire-btn,
+.contact-btn {
+    background-color: #FF6300;
     border: none;
     transition: 0.3s;
 }
 
-.btn:hover, .hire-btn:hover, .contact-btn:hover {
+.btn:hover,
+.hire-btn:hover,
+.contact-btn:hover {
     background-color: #e65100;
 }
 
-/* Footer Orange Theme */
 .footer {
     background: #ff9800;
     color: white;
