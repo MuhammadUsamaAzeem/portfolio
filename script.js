@@ -9,19 +9,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const category = this.getAttribute("data-category");
             projects.forEach(project => {
-                if (category === "all" || project.classList.contains(category)) {
-                    project.style.display = "block";
-                } else {
-                    project.style.display = "none";
-                }
+                project.style.display = (category === "all" || project.classList.contains(category)) ? "block" : "none";
             });
         });
     });
+
+    const sections = document.querySelectorAll(".animated-section");
+    function revealOnScroll() {
+        sections.forEach(section => {
+            if (section.getBoundingClientRect().top < window.innerHeight * 0.85) {
+                section.classList.add("show");
+            }
+        });
+    }
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
 });
 
 function openLightbox(imageSrc) {
-    
-    if (!imageSrc) return; 
+    if (!imageSrc) return;
 
     let lightbox = document.getElementById("lightbox");
 
@@ -35,53 +41,56 @@ function openLightbox(imageSrc) {
         img.src = imageSrc;
         img.alt = "Full Screen Image";
 
-        // Close button
         const closeButton = document.createElement("span");
         closeButton.innerHTML = "&times;";
         closeButton.classList.add("lightbox-close");
         closeButton.onclick = closeLightbox;
 
-        lightbox.appendChild(closeButton);
-        lightbox.appendChild(img);
+        lightbox.append(closeButton, img);
         document.body.appendChild(lightbox);
+
+        lightbox.addEventListener("click", function (event) {
+            if (event.target === lightbox) closeLightbox();
+        });
     } else {
         document.getElementById("lightbox-img").src = imageSrc;
-        lightbox.classList.add("active");
     }
 
     lightbox.style.display = "flex";
-    document.body.style.overflow = "hidden"; 
+    document.body.style.overflow = "hidden";
 }
 
 function closeLightbox() {
-    var lightbox = document.getElementById("lightbox");
-
-    if (lightbox) {
-        lightbox.style.display = "none"; 
-    }
-
-    document.body.style.overflow = "auto"; 
+    let lightbox = document.getElementById("lightbox");
+    if (lightbox) lightbox.style.display = "none";
+    document.body.style.overflow = "auto";
 }
-
 
 document.addEventListener("DOMContentLoaded", function () {
     let lightbox = document.getElementById("lightbox");
-    if (lightbox) {
-        lightbox.style.display = "none";
-    }
+    if (lightbox) lightbox.style.display = "none";
 });
-document.addEventListener("DOMContentLoaded", function () {
-    const sections = document.querySelectorAll(".animated-section");
 
-    function revealOnScroll() {
-        sections.forEach(section => {
-            const sectionTop = section.getBoundingClientRect().top;
-            if (sectionTop < window.innerHeight * 0.85) {
-                section.classList.add("show");
-            }
-        });
+document.addEventListener("DOMContentLoaded", function () {
+    const container = document.getElementById("projects-container");
+    const projects = container.innerHTML; 
+
+    container.innerHTML += projects; 
+
+    let scrollAmount = 0;
+    const scrollSpeed = 1.5;
+
+    function autoScroll() {
+        if (scrollAmount >= container.scrollWidth / 2) {
+            scrollAmount = 0;
+            container.style.transition = "none"; 
+            container.style.transform = `translateX(0px)`;
+        } else {
+            scrollAmount += scrollSpeed;
+            container.style.transition = "transform 0.1s linear"; 
+            container.style.transform = `translateX(-${scrollAmount}px)`;
+        }
     }
 
-    window.addEventListener("scroll", revealOnScroll);
-    revealOnScroll(); // Run on page load
+    setInterval(autoScroll, 30); 
 });
