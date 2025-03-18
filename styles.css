@@ -11,73 +11,109 @@ body {
     color: white;
 }
 
-/* Header Styles */
-header {
+/* ===== HEADER STYLING ===== */
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 15px 10%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 8%;
-    background: #000;
-    position: relative;
+    transition: all 0.3s ease-in-out;
 }
 
-.nav-container {
-    display: flex;
-    align-items: center;
-    flex-grow: 0.5;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    margin-left: auto;
-}
-
-nav ul li {
-    margin: 0 13px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 16px;
-    transition: 0.3s;
-}
-
-nav ul li .active {
-    color: #FF6300;
-}
-
-nav ul li a:hover {
-    color: #FF6300;
-}
-
+/* ===== LOGO STYLING ===== */
 .logo {
     display: flex;
     align-items: center;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
     color: #fff;
+    text-transform: uppercase;
 }
 
 .logo span {
-    background: #FF6300;
+    background: #FF6600;
+    color: #fff;
     padding: 8px 12px;
-    color: #ffffff;
-    border-radius: 4px;
-    font-size: 22px;
+    border-radius: 6px;
     margin-right: 8px;
 }
 
-.btn {
-    margin-left: auto;
-    background: #FF6300;
-    color: white;
-    padding: 15px 20px;
+/* ===== NAVIGATION MENU ===== */
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
     text-decoration: none;
-    border-radius: 2px;
     font-size: 16px;
-    transition: 0.3s;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.3s ease-in-out;
+    position: relative;
+}
+
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #FF6600;
+}
+
+
+.nav-links a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 3px;
+    background: #FF6600;
+    transition: width 0.3s ease-in-out;
+}
+
+
+.cv-button {
+    background: linear-gradient(135deg, #FF6600, #D14A00);
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 5px 10px rgba(255, 102, 0, 0.4);
+}
+
+.cv-button:hover {
+    background: #D14A00;
+    transform: translateY(-2px);
+}
+
+/* ===== STICKY NAVBAR ON SCROLL ===== */
+.header.scrolled {
+    background: rgba(0, 0, 0, 0.95);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 10px 8%;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn {
+    background: linear-gradient(135deg, #FF6600, #D14A00);
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 5px 10px rgba(255, 102, 0, 0.4);
 }
 
 .btn:hover {
@@ -86,14 +122,15 @@ nav ul li a:hover {
 }
 
 .hire-btn {
-    background: #FF6300;
+    background: linear-gradient(135deg, #FF6600, #D14A00);
     color: white;
-    padding: 15px 35px;
-    text-decoration: none;
-    border-radius: 2px;
+    padding: 12px 20px;
     font-size: 16px;
-    transition: 0.3s;
-    margin-top: 30px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 5px 10px rgba(255, 102, 0, 0.4);
 }
 
 .hire-btn:hover {
@@ -226,18 +263,15 @@ nav ul li a:hover {
 
 /* Button Styles */
 .btn {
-    display: inline-block;
-    padding: 14px 26px;
-    background: #FF6600;
-    color: #fff;
-    font-size: 18px;
+    background: linear-gradient(135deg, #FF6600, #D14A00);
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
     font-weight: bold;
-    text-transform: uppercase;
-    border: none;
     border-radius: 8px;
+    text-decoration: none;
     transition: all 0.3s ease-in-out;
-    cursor: pointer;
-    box-shadow: 0px 5px 15px rgba(255, 102, 0, 0.3);
+    box-shadow: 0px 5px 10px rgba(255, 102, 0, 0.4);
 }
 
 .btn:hover {
@@ -246,30 +280,6 @@ nav ul li a:hover {
     transform: translateY(-3px);
 }
 
-/* Skills Section */
-.skill-bar {
-    margin: 15px 0;
-}
-
-.skill-bar p {
-    font-size: 14px;
-    margin-bottom: 5px;
-    padding-top: 20px;
-}
-
-.progress {
-    background: #EDECEC;
-    height: 12px;
-    width: 670px;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.progress-bar {
-    height: 12px;
-    background: #FF6300;
-    border-radius: 5px;
-}
 
 /* Services Section */
 .services {
@@ -363,11 +373,11 @@ nav ul li a:hover {
     line-height: 1.6;
 }
 
-.projects-wrapper {
+/* .projects-wrapper {
     position: relative;
     overflow: hidden; 
     max-width: 100%;
-}
+} */
 
 #projects-container {
     display: flex;
@@ -551,13 +561,10 @@ nav ul li a:hover {
 
 /* Footer Styles */
 .footer {
-    background: #000;
-    color: white;
+    width: 100vw; 
+    padding: 30px 0;
     text-align: center;
-    padding: 40px 20px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    color: white;
 }
 
 .footer-bottom {
@@ -723,7 +730,6 @@ section.show {
     animation: fadeInUp 1s ease-in-out;
 }
 
-/* Scrollbar Styles */
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -741,9 +747,8 @@ section.show {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #e65100;
-}
+}   
 
-/* Additional Styles */
 body {
     background-color: #fffaf0;
     color: #333;
@@ -785,8 +790,6 @@ h3 {
     color: #ffcc80;
 }
 
-
-/* Responsive Styles */
 @media screen and (max-width: 1024px) {
     .hero {
         flex-direction: column;
