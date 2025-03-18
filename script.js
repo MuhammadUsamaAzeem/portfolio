@@ -73,9 +73,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     const container = document.getElementById("projects-container");
-    const projects = container.innerHTML; 
+    if (!container) return;
 
-    container.innerHTML += projects; 
+    const projects = container.innerHTML;
+    container.innerHTML += projects;
 
     let scrollAmount = 0;
     const scrollSpeed = 1.5;
@@ -83,14 +84,43 @@ document.addEventListener("DOMContentLoaded", function () {
     function autoScroll() {
         if (scrollAmount >= container.scrollWidth / 2) {
             scrollAmount = 0;
-            container.style.transition = "none"; 
             container.style.transform = `translateX(0px)`;
         } else {
             scrollAmount += scrollSpeed;
-            container.style.transition = "transform 0.1s linear"; 
             container.style.transform = `translateX(-${scrollAmount}px)`;
         }
     }
 
-    setInterval(autoScroll, 30); 
+    setInterval(autoScroll, 30);
 });
+
+
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-links a");
+
+
+function updateActiveLink() {
+    let current = "";
+
+    sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= sectionTop - sectionHeight / 3) {
+            current = section.getAttribute("id");
+        }
+    });
+
+
+    navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href").includes(current)) {
+            link.classList.add("active");
+        }
+    });
+}
+
+
+window.addEventListener("scroll", updateActiveLink);
+
+
+document.addEventListener("DOMContentLoaded", updateActiveLink);
