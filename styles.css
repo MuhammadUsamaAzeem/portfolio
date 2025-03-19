@@ -11,10 +11,22 @@ body {
 }
 
 .navbar {
+    position: absolute; 
+    width: 100%;
+    top: 0;
+    left: 0;
     background: rgba(0, 0, 0, 0.95);
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
     padding: 10px 8%;
-    transition: all 0.3s ease-in-out;
+    transition: top 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.navbar.sticky {
+    position: fixed; 
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95); 
 }
 
 .logo-box {
@@ -41,13 +53,10 @@ body {
     transition: color 0.3s ease-in-out;
 }
 
-.navbar-nav .nav-link:hover {
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
     color: #FF6600; 
-}   
-
-.navbar-nav .nav-linkactive:hover {
-    color: #FF6600; 
-}  
+}
 
 .btn-orange {
     background: linear-gradient(135deg, #FF6600, #D14A00);
@@ -834,10 +843,9 @@ h3 {
 }
 
 @media screen and (max-width: 480px) {
-    .hero h1 {
-        font-size: 28px;
+    .hero .content h1{
+        font-size: 27px;
     }
-
     .about-content h2 {
         font-size: 24px;
         text-align: center;
@@ -854,5 +862,34 @@ h3 {
 
     .project-item {
         width: 95%;
+    }
+    a.btn {
+        width: 124px;
+        font-size: 13px;
+    }
+    .hero .content .description {
+        font-size: 15px;
+        font-weight: 100;
+        line-height: 1.5;
+        margin-bottom: 29px;
+    }
+    .hero .image img {
+        max-width: 80%;
+        margin-top: 50px;
+    }
+    .about-image{
+        display: none;
+    }
+    .service-box{
+        width: 300px;
+    }
+    .contact-btn {
+        background-color: #FF6300;
+        border: none;
+        transition: 0.3s;
+        border-radius: 7px;
+        font-weight: 200;
+        font-size: 12px;
+        width: 120px;
     }
 }
