@@ -76,28 +76,39 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!container) return;
 
     const projects = container.innerHTML;
-    container.innerHTML += projects;
+    container.innerHTML += projects; 
 
     let scrollAmount = 0;
-    const scrollSpeed = 1.5;
+    const scrollSpeed = 3; // Increase this value for faster scrolling
+    let isHovering = false; 
 
     function autoScroll() {
-        if (scrollAmount >= container.scrollWidth / 2) {
-            scrollAmount = 0;
-            container.style.transform = `translateX(0px)`;
-        } else {
-            scrollAmount += scrollSpeed;
-            container.style.transform = `translateX(-${scrollAmount}px)`;
+        if (!isHovering) { 
+            if (scrollAmount >= container.scrollWidth / 2) {
+                scrollAmount = 0;
+                container.style.transform = `translateX(0px)`;
+            } else {
+                scrollAmount += scrollSpeed;
+                container.style.transform = `translateX(-${scrollAmount}px)`;
+            }
         }
     }
 
     setInterval(autoScroll, 30);
-});
 
+    const projectItems = document.querySelectorAll(".project-item");
+    projectItems.forEach(item => {
+        item.addEventListener("mouseenter", () => {
+            isHovering = true; 
+        });
+        item.addEventListener("mouseleave", () => {
+            isHovering = false; 
+        });
+    });
+});
 
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".nav-links a");
-
 
 function updateActiveLink() {
     let current = "";
@@ -110,7 +121,6 @@ function updateActiveLink() {
         }
     });
 
-
     navLinks.forEach((link) => {
         link.classList.remove("active");
         if (link.getAttribute("href").includes(current)) {
@@ -119,8 +129,5 @@ function updateActiveLink() {
     });
 }
 
-
 window.addEventListener("scroll", updateActiveLink);
-
-
 document.addEventListener("DOMContentLoaded", updateActiveLink);
