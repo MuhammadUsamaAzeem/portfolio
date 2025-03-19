@@ -26,10 +26,12 @@ document.addEventListener("DOMContentLoaded", function () {
     revealOnScroll();
 });
 
+// ✅ Lightbox Functionality with Navbar Hide
 function openLightbox(imageSrc) {
     if (!imageSrc) return;
 
     let lightbox = document.getElementById("lightbox");
+    let navbar = document.querySelector(".navbar"); // ✅ Select Navbar
 
     if (!lightbox) {
         lightbox = document.createElement("div");
@@ -58,17 +60,34 @@ function openLightbox(imageSrc) {
 
     lightbox.style.display = "flex";
     document.body.style.overflow = "hidden";
+
+    // ✅ Hide Navbar
+    if (navbar) {
+        navbar.style.display = "none";
+    }
 }
 
 function closeLightbox() {
     let lightbox = document.getElementById("lightbox");
-    if (lightbox) lightbox.style.display = "none";
-    document.body.style.overflow = "auto";
+    let navbar = document.querySelector(".navbar"); // ✅ Select Navbar
+
+    if (lightbox) {
+        lightbox.style.display = "none";
+        document.body.style.overflow = "auto";
+    }
+
+    // ✅ Show Navbar Back
+    if (navbar) {
+        navbar.style.display = "flex"; // "block" ya "flex" rakhna, jo layout match kare
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    let lightbox = document.getElementById("lightbox");
-    if (lightbox) lightbox.style.display = "none";
+    document.querySelectorAll(".lightbox-trigger").forEach(image => {
+        image.addEventListener("click", function () {
+            openLightbox(this.src);
+        });
+    });
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -79,11 +98,11 @@ document.addEventListener("DOMContentLoaded", function () {
     container.innerHTML += projects; 
 
     let scrollAmount = 0;
-    const scrollSpeed = 3; // Increase this value for faster scrolling
-    let isHovering = false; 
+    const scrollSpeed = 3;
+    let isHovering = false;
 
     function autoScroll() {
-        if (!isHovering) { 
+        if (!isHovering) {
             if (scrollAmount >= container.scrollWidth / 2) {
                 scrollAmount = 0;
                 container.style.transform = `translateX(0px)`;
@@ -99,10 +118,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const projectItems = document.querySelectorAll(".project-item");
     projectItems.forEach(item => {
         item.addEventListener("mouseenter", () => {
-            isHovering = true; 
+            isHovering = true;
         });
         item.addEventListener("mouseleave", () => {
-            isHovering = false; 
+            isHovering = false;
         });
     });
 });
@@ -131,3 +150,76 @@ function updateActiveLink() {
 
 window.addEventListener("scroll", updateActiveLink);
 document.addEventListener("DOMContentLoaded", updateActiveLink);
+
+window.addEventListener("scroll", function () {
+    let navbar = document.querySelector(".navbar");
+    if (window.scrollY > 100) {  
+        navbar.classList.add("sticky");
+    } else {
+        navbar.classList.remove("sticky");
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    function highlightNav() {
+        let scrollPos = window.scrollY + 100;
+
+        sections.forEach((section) => {
+            let top = section.offsetTop;
+            let height = section.offsetHeight;
+            let id = section.getAttribute("id");
+
+            if (scrollPos >= top && scrollPos < top + height) {
+                navLinks.forEach((link) => {
+                    link.classList.remove("active");
+                });
+
+                let activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
+                if (activeLink) {
+                    activeLink.classList.add("active");
+                }
+            }
+        });
+    }
+
+    window.addEventListener("scroll", highlightNav);
+
+    navLinks.forEach((link) => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
+            let targetId = this.getAttribute("href").substring(1);
+            let targetSection = document.getElementById(targetId);
+
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop - 50,
+                    behavior: "smooth",
+                });
+            }
+        });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    let img = document.querySelector(".hero img");
+    let scale = 1.01; // Starting scale
+    let growing = true;
+
+    function animateImage() {
+        if (growing) {
+            scale += 0.0002; // Super slow zoom in
+            if (scale >= 1.03) growing = false; 
+        } else {
+            scale -= 0.0002; // Super slow zoom out
+            if (scale <= 1.01) growing = true;
+        }
+
+        img.style.transform = `scale(${scale})`;
+        requestAnimationFrame(animateImage); // Continuous animation
+    }
+
+    animateImage();
+});
