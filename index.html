@@ -6,34 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - UI/UX Designer</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
 </head>
 
 <body>
-    <header class="header">
-        <div class="logo">
-            <span>M</span>uhammad
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <span class="logo-box">M</span>
+                <span class="logo-text ms-2">UHAMMAD</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                    </li>
+                </ul>
+
+                <a href="#" class="btn btn-orange">Download CV</a>
+            </div>
         </div>
-        <nav class="nav-links">
-            <a href="#home" class="nav-item active">Home</a>
-            <a href="#about" class="nav-item">About</a>
-            <a href="#services" class="nav-item">Services</a>
-            <a href="#projects" class="nav-item">Projects</a>
-            <a href="#contact" class="nav-item">Contact Us</a>
-        </nav>
-        <a href="#" class="cv-button">Download CV</a>
-    </header>
-    
+    </nav>
+
     <!-- Sections -->
     <section id="home">Home Section</section>
     <section id="about">About Section</section>
     <section id="services">Services Section</section>
     <section id="projects">Projects Section</section>
     <section id="contact">Contact Section</section>
-    
-    
+
+
 
     <section class="hero animated-section slide-up">
         <div class="content" style="margin-left: 35px;">
@@ -44,7 +68,8 @@
                 As a passionate UI/UX designer, I create engaging, user-friendly digital experiences with a strong focus
                 on usability and aesthetics.
             </p>
-            <a href="https://wa.me/923260511554?text=Hello%20I%20am%20interested%20in%20hiring%20you!" target="_blank" class="hire-btn">
+            <a href="https://wa.me/923260511554?text=Hello%20I%20am%20interested%20in%20hiring%20you!" target="_blank"
+                class="hire-btn">
                 HIRE ME
             </a>
         </div>
@@ -69,7 +94,7 @@
             <a href="#" class="btn">Read More</a>
         </div>
     </section>
-    
+
 
     <section class="services animated-section slide-up">
         <h2>Services</h2>
@@ -99,10 +124,10 @@
         </div>
     </section>
 
-    <section class="projects-section animated-section fade-in">
+    <section class="projects-section animated-section fade-in" style="overflow-y: hidden; white-space: nowrap;">
         <h2>My Projects</h2>
         <p>Here are some of my recent projects showcasing my expertise in UI/UX, web design, and app design.</p>
-    
+
         <div id="projects-container">
             <div class="project-item uiux" onclick="openLightbox('Project 1 Full Screen.png')">
                 <img src="Project 1.png" alt="Skill Connect Landing Page">
@@ -125,38 +150,18 @@
                 <h3>Car Auction Website</h3>
             </div>
             <div class="project-item uiux" onclick="openLightbox('Project 5 Full Screen.png')">
-                <img src="Project 5.png" alt="Project 5">
+                <img src="Project 5.jpg" alt="Project 5">
                 <p class="category">UI UX</p>
-                <h3>Project 5</h3>
+                <h3>dWallet Pos</h3>
             </div>
-            <div class="project-item uiux" onclick="openLightbox('Project 6 Full Screen.png')">
+            <div class="project-item uiux" onclick="openLightbox('Project 6 Full Screen.jpg')">
                 <img src="Project 6.png" alt="Project 6">
                 <p class="category">UI UX</p>
-                <h3>Project 6</h3>
-            </div>
-            <div class="project-item uiux" onclick="openLightbox('Project 7 Full Screen.png')">
-                <img src="Project 7.png" alt="Project 7">
-                <p class="category">UI UX</p>
-                <h3>Project 7</h3>
-            </div>
-            <div class="project-item uiux" onclick="openLightbox('Project 8 Full Screen.png')">
-                <img src="Project 8.png" alt="Project 8">
-                <p class="category">UI UX</p>
-                <h3>Project 8</h3>
-            </div>
-            <div class="project-item uiux" onclick="openLightbox('Project 9 Full Screen.png')">
-                <img src="Project 9.png" alt="Project 9">
-                <p class="category">UI UX</p>
-                <h3>Project 9</h3>
-            </div>
-            <div class="project-item uiux" onclick="openLightbox('Project 10 Full Screen.png')">
-                <img src="Project 10.png" alt="Project 10">
-                <p class="category">UI UX</p>
-                <h3>Project 10</h3>
+                <h3>Enterprise Website</h3>
             </div>
         </div>
     </section>
-    
+
 
     <section class="contact-section animated-section slide-up">
         <h2>Let's Design Together</h2>
@@ -166,7 +171,7 @@
             <button class="contact-btn">CONTACT ME</button>
         </div>
     </section>
-    
+
     <footer class="footer animated-section fade-in">
         <div class="footer-logo">
             <span class="logo-box">M</span>uhammad
@@ -190,6 +195,11 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
