@@ -205,21 +205,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     let img = document.querySelector(".hero img");
-    let scale = 1.01; // Starting scale
+    let scale = 1.01; 
     let growing = true;
 
     function animateImage() {
         if (growing) {
-            scale += 0.0002; // Super slow zoom in
+            scale += 0.0002; 
             if (scale >= 1.03) growing = false; 
         } else {
-            scale -= 0.0002; // Super slow zoom out
+            scale -= 0.0002; 
             if (scale <= 1.01) growing = true;
         }
 
         img.style.transform = `scale(${scale})`;
-        requestAnimationFrame(animateImage); // Continuous animation
+        requestAnimationFrame(animateImage); 
     }
 
     animateImage();
 });
+
+window.onload = function () {
+    setTimeout(() => {
+        let heroSection = document.getElementById("home");
+        if (heroSection) {
+            heroSection.scrollIntoView({ behavior: "smooth" });
+        }
+    }, 100); 
+};
