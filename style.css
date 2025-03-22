@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.cv-container {
+    background: #fff;
+    width: 800px;
+    padding: 40px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.highlight {
+    color: #FF6600; 
+}
+
+.sub-header {
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+.contact-info {
+    font-size: 16px;
+    margin-top: 10px;
+    color: #555;
+}
+
+.summary p {
+    font-size: 16px;
+    margin: 20px 0;
+    color: #333;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 30px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #FF6600;
+    display: inline-block;
+}
+
+.skills ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.skills ul li {
+    background: #FF6600; 
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.skills ul li:hover {
+    background: #CC5500; 
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.experience .job {
+    margin-top: 20px;
+}
+
+.company {
+    font-weight: bold;
+    color: #FF6600; 
+}
+
+.date {
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.experience ul {
+    text-align: left;
+    list-style: disc inside;
+    margin-top: 10px;
+}
+
+.achievements p,
+.certifications p {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+footer {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #777;
+}
+
+.job-description {
+    margin-bottom: 20px;
+}
+
+.education-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.education-card {
+    width: 48%;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.degree {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.college {
+    color: #FF6600; 
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.education-date {
+    font-size: 14px;
+    color: gray;
+}
+
+.languages ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.languages ul li {
+    background: #FF6600; 
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.social-media {
+    margin-top: 30px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    background: #FF6600; 
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s ease-in-out;
+}
+
+.social-link i {
+    margin-right: 8px;
+}
+
+.social-link:hover {
+    background: #CC5500; 
+    transform: scale(1.1);
+}
+
+
+
+@media (max-width: 768px) {
+    .education-section {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .education-card {
+        width: 100%;
+    }
+}
