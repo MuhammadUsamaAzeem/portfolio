@@ -232,3 +232,62 @@ window.onload = function () {
         }
     }, 100); 
 };
+
+document.addEventListener("DOMContentLoaded", function () {
+    emailjs.init("Muhammad Usama Azeem"); // Apna EmailJS User ID yahan paste karein
+
+    document.getElementById("contactForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Form submit hone se rokne ke liye
+
+        emailjs.send("service_jjbknv4", "template_y55bior", {
+            from_name: document.getElementById("name").value,
+            from_email: document.getElementById("email").value,
+            message: document.getElementById("message").value
+        })
+        .then(function (response) {
+            document.getElementById("status").innerHTML = "✅ Email Sent Successfully!";
+        }, function (error) {
+            document.getElementById("status").innerHTML = "❌ Failed to send email.";
+        });
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    let scrollBtn = document.createElement("button");
+    scrollBtn.id = "scrollToTop";
+    scrollBtn.innerHTML = "↑";
+    document.body.appendChild(scrollBtn);
+
+    window.addEventListener("scroll", function () {
+        if (window.scrollY > 200) {
+            scrollBtn.classList.add("show");
+        } else {
+            scrollBtn.classList.remove("show");
+        }
+    });
+
+    scrollBtn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+});
+
+
+document.getElementById("downloadBtn").addEventListener("click", function(event) {
+    event.preventDefault(); // Default download rokna
+
+    // Check if file already exists
+    if (localStorage.getItem("cvDownloaded")) {
+        alert("CV already exists in your gallery.");
+    } else {
+        // Download file & mark it as downloaded
+        let link = document.createElement("a");
+        link.href = "cv.pdf";
+        link.download = "cv.pdf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        localStorage.setItem("cvDownloaded", "true"); // Store status
+    }
+});
