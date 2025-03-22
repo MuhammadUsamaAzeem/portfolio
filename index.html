@@ -45,7 +45,13 @@
                     </li>
                 </ul>
 
-                <a href="#" class="btn btn-orange">Download CV</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Download CV <i class="fas fa-chevron-down"></i></button>
+                    <div class="dropdown-content">
+                        <a href="cv.html"><i class="fas fa-eye"></i> View CV</a>
+                        <a href="cv.pdf" download><i class="fas fa-download"></i> Download CV</a>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -156,12 +162,13 @@
 
 
     <section class="contact-section animated-section slide-up" id="contact">
+        <div id="message-box"></div>
         <h2><span>Contact</span> Me</h2>
         <p>Get in touch with me today! Whether you have a question, an idea to discuss, or a project in mind, I'm here
             to listen.</p>
 
         <div class="contact-container">
-            <form class="contact-form" action="sendmail.php">
+            <form class="contact-form">
                 <input type="text" placeholder="Enter Your Name" required>
                 <input type="email" placeholder="abc123@gmail.com" required>
                 <input type="text" placeholder="Subject" required>
@@ -191,6 +198,12 @@
             <p>&copy; 2025 <span class="highlight">Muhammad Usama Azeem</span> | All Rights Reserved.</p>
         </div>
     </footer>
+    <button id="backToTop" class="top-button">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12l7-7 7 7"></path>
+        </svg>
+    </button>
+    
 
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
