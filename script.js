@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!container) return;
 
     const projects = container.innerHTML;
-    container.innerHTML += projects; 
+    container.innerHTML += projects;
 
     let scrollAmount = 0;
     const scrollSpeed = 3;
@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", updateActiveLink);
 
 window.addEventListener("scroll", function () {
     let navbar = document.querySelector(".navbar");
-    if (window.scrollY > 100) {  
+    if (window.scrollY > 100) {
         navbar.classList.add("sticky");
     } else {
         navbar.classList.remove("sticky");
@@ -205,20 +205,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     let img = document.querySelector(".hero img");
-    let scale = 1.01; 
+    let scale = 1.01;
     let growing = true;
 
     function animateImage() {
         if (growing) {
-            scale += 0.0002; 
-            if (scale >= 1.03) growing = false; 
+            scale += 0.0002;
+            if (scale >= 1.03) growing = false;
         } else {
-            scale -= 0.0002; 
+            scale -= 0.0002;
             if (scale <= 1.01) growing = true;
         }
 
         img.style.transform = `scale(${scale})`;
-        requestAnimationFrame(animateImage); 
+        requestAnimationFrame(animateImage);
     }
 
     animateImage();
@@ -230,28 +230,8 @@ window.onload = function () {
         if (heroSection) {
             heroSection.scrollIntoView({ behavior: "smooth" });
         }
-    }, 100); 
+    }, 100);
 };
-
-document.addEventListener("DOMContentLoaded", function () {
-    emailjs.init("Muhammad Usama Azeem"); // Apna EmailJS User ID yahan paste karein
-
-    document.getElementById("contactForm").addEventListener("submit", function (event) {
-        event.preventDefault(); // Form submit hone se rokne ke liye
-
-        emailjs.send("service_jjbknv4", "template_y55bior", {
-            from_name: document.getElementById("name").value,
-            from_email: document.getElementById("email").value,
-            message: document.getElementById("message").value
-        })
-        .then(function (response) {
-            document.getElementById("status").innerHTML = "✅ Email Sent Successfully!";
-        }, function (error) {
-            document.getElementById("status").innerHTML = "❌ Failed to send email.";
-        });
-    });
-});
-
 
 document.addEventListener("DOMContentLoaded", function () {
     let scrollBtn = document.createElement("button");
@@ -273,21 +253,98 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-document.getElementById("downloadBtn").addEventListener("click", function(event) {
-    event.preventDefault(); // Default download rokna
+document.getElementById("cvDownloadLink").addEventListener("click", function (event) {
+    event.preventDefault();
 
-    // Check if file already exists
-    if (localStorage.getItem("cvDownloaded")) {
-        alert("CV already exists in your gallery.");
-    } else {
-        // Download file & mark it as downloaded
-        let link = document.createElement("a");
+    // Check if the file exists in the system before downloading
+    checkIfFileExists("cv.pdf", function (exists) {
+        if (exists) {
+            if (localStorage.getItem('cvDownloaded') === 'true') {
+                showSnackbar("⚠️ CV already exists in your gallery.", "warning");
+                return;
+            }
+        } else {
+            // Reset localStorage if file is deleted
+            localStorage.removeItem('cvDownloaded');
+        }
+
+        // Mark as downloaded
+        localStorage.setItem('cvDownloaded', 'true');
+
+        // Create a hidden download link
+        const link = document.createElement("a");
         link.href = "cv.pdf";
         link.download = "cv.pdf";
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
 
-        localStorage.setItem("cvDownloaded", "true"); // Store status
-    }
+        showSnackbar("✅ CV downloaded successfully!", "success");
+    });
 });
+
+// Function to check if file exists
+function checkIfFileExists(url, callback) {
+    fetch(url, { method: 'HEAD' })
+        .then(response => {
+            if (response.ok) {
+                callback(true);
+            } else {
+                callback(false);
+            }
+        })
+        .catch(() => callback(false));
+}
+
+// Snackbar function
+function showSnackbar(message, type) {
+    let snackbar = document.getElementById("snackbar");
+
+    if (!snackbar) {
+        snackbar = document.createElement("div");
+        snackbar.id = "snackbar";
+        document.body.appendChild(snackbar);
+
+        // Add styles dynamically
+        const style = document.createElement("style");
+        style.textContent = `
+            #snackbar {
+                position: fixed;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                color: white;
+                padding: 14px 28px;
+                font-size: 16px;
+                font-weight: 500;
+                border-radius: 6px;
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+                z-index: 9999;
+                opacity: 0;
+                transform: translate(-50%, 30px);
+                transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+
+            #snackbar.show {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+
+            #snackbar.success {
+                background-color: #4CAF50; /* Green */
+            }
+
+            #snackbar.warning {
+                background-color: #FF9800; /* Orange */
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    snackbar.textContent = message;
+    snackbar.className = "show " + type;
+
+    setTimeout(() => {
+        snackbar.classList.remove("show");
+    }, 3000);
+}
