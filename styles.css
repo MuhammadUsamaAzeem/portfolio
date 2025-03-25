@@ -25,6 +25,7 @@
 body {
     background: var(--color-black);
     color: var(--color-white);
+    font-family: 'Poppins', sans-serif;
 }
 
 .navbar {
@@ -222,6 +223,13 @@ a.btn {
     gap: 10px;
     transition: 0.3s ease-in-out;
 }
+
+.dropdown-content a i {
+    margin-right: 8px; 
+    font-size: 18px; 
+    vertical-align: middle; 
+}
+
 
 .dropdown-content a:hover {
     background-color: var(--color-orange);
@@ -1106,4 +1114,13 @@ h3 {
 
 html::-webkit-scrollbar, body::-webkit-scrollbar {
     display: none; 
+}
+
+.hero-img {
+    filter: brightness(1.2); /* 1.2 se thoda bright ho jayega */
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-Regular.ttf') format('truetype');
 }
